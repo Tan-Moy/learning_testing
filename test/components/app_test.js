@@ -16,7 +16,7 @@ describe('App', () => {
 })
 
 // describe: groups together similar tests describing something about App. This
-// string is just for test report it: use 'it' to test a single attribute of a
-// target This string is just for test report expect: use 'expect' to make an
+// string is just for test report, it: use 'it' to test a single attribute of a
+// target This string is just for test report, expect: use 'expect' to make an
 // 'assertion' about a target we tell it what to expect when the component
 // renders
