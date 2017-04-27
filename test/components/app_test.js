@@ -4,17 +4,21 @@ import App from "../../src/components/app";
 //importing the component to be tested Really important keywords
 
 describe("App", () => {
-    let component;
+  let component;
 
-    beforeEach(() => {
-        component = renderComponent(App);
-    });
+  beforeEach(() => {
+    component = renderComponent(App);
+  });
 
-    it("shows a comment box", () => {
-        expect(component.find(".comment-box")).to.exist;
-        // the above component is wrapped in jquery since find is a jquery method that
-        // accepts a css selector which we expect to exist
-    });
+  it("shows a comment box", () => {
+    expect(component.find(".comment-box")).to.exist;
+    // the above component is wrapped in jquery since find is a jquery method that
+    // accepts a css selector which we expect to exist
+  });
+
+  it("shows a comment list", () => {
+      expect(component.find('.comment-list')).to.exist;
+  });
 });
 
 // describe: groups together similar tests describing something about App. This

@@ -2,7 +2,7 @@ import { renderComponent, expect } from "../test_helper";
 import CommentBox from "../../src/components/comment_box";
 
 describe("CommentBox", () => {
-  let component; //declaring the variable 'component' in global scope so that all the 'it' functions have access to it. As usual the variable gets stored in memspace as undefined during initial scan by Syntax parser
+  let component; //declaring the variable 'component' in global scope so that all the 'it' functions have access to it. As usual the variable gets stored in memspace as undefined during initial scan by Syntax parser 
 
   beforeEach(() => {
     component = renderComponent(CommentBox); //redeclaring with new value
