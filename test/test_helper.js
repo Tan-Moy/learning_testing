@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 //we need the react component to be wrapped in this
 import { createStore } from "redux";
 import reducers from "../src/reducers";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
 //Targets for the test helper suite:
 
@@ -23,10 +23,10 @@ const $ = _$(global.window);
 
 //task-2: build  'renderComponent' helper that should render a given react class
 //The sole purpose of this helper is no matter what iit is going to take a react component class render it, get it's html and wrap that with a jquery element and reurns the jquery wrapped element
-function renderComponent(ComponentClass,props,state) {
+function renderComponent(ComponentClass, props, state) {
   //we pass in the react componentClass,props and state to the function. It is the same class we create when we say class something extends React.Component
   const componentInstance = TestUtils.renderIntoDocument(
-    <Provider store={createStore(reducers,state)}>
+    <Provider store={createStore(reducers, state)}>
       <ComponentClass {...props} />
     </Provider>
   );
@@ -36,7 +36,17 @@ function renderComponent(ComponentClass,props,state) {
   //we will find the dom node of our component instance. This produces the HTML that we need.
 }
 
-//build helper for simulating events
+//task-3: building a helper for simulating events
+$.fn.simulate = function(eventName, value) {
+  if (value) {
+    this.val(value);
+  }
+  TestUtils.Simulate[eventName](this[0]);
+  //we use he TestUtils library to use Simulate to respond to any event. This[0] refers to the first element on which Simulate is called on
+};
+//every jquery insatnce we ever create will have access to the simulate functon
+//to simulate we can do: $('div').simulate()...
+
 //set up chai-jquery
 
 export { renderComponent, expect };
