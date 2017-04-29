@@ -2,13 +2,14 @@ import jsdom from "jsdom";
 import _$ from "jquery";
 //_$ is a junkie/modified version of jquery
 import TestUtils from "react-addons-test-utils";
-import { expect } from "chai";
+import chai, { expect } from "chai";
 import React from "react";
 import { Provider } from "react-redux";
 //we need the react component to be wrapped in this
 import { createStore } from "redux";
 import reducers from "../src/reducers";
 import ReactDOM from "react-dom";
+import chaiJquery from "chai-jquery";
 
 //Targets for the test helper suite:
 
@@ -48,5 +49,6 @@ $.fn.simulate = function(eventName, value) {
 //to simulate we can do: $('div').simulate()...
 
 //set up chai-jquery
+chaiJquery(chai, chai.util, $);
 
 export { renderComponent, expect };
