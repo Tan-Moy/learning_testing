@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from'../actions'
+//importing every action from actions file
 
-export default class CommentBox extends Component {
+class CommentBox extends Component {
   constructor(props) {
     super(props);
 
@@ -15,6 +18,7 @@ export default class CommentBox extends Component {
 
   handleSubmit(event){
     event.preventDefault();
+    this.props.saveComment(this.state.comment);
     this.setState({comment:""})
   }
 
@@ -33,3 +37,6 @@ export default class CommentBox extends Component {
 
 // Each component should have a unique className so that we can use tests to
 // check for the element with any given className
+
+export default connect(null ,actions)(CommentBox);
+//instead of MapDisatchToProps we are using actions imported
